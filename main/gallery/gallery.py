@@ -21,6 +21,10 @@ def home():
     return "okay login men"
     # return render_template('gallery/home.html')
 
+@gallery.route('/gallery', method=['GET'])
+def gallery():
+    pass
+
 @gallery.route("/details", methods=['GET'])
 def details():
     pass
