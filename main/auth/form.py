@@ -4,7 +4,7 @@ from wtforms.validators import DataRequired,Length,Email,EqualTo,ValidationError
 from flask_login import current_user
 
 from ..database import Database
-from ..models import User,Role,Post,Notification,follow
+from ..models import User,Post,Notification,follow
 from .. import bcrypt_
 
 db = Database(User,Post,Notification,follow)

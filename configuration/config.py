@@ -1,8 +1,9 @@
 import secrets
-import os 
+import os
+from ast import literal_eval
 from dotenv import load_dotenv,find_dotenv
 
-find_dotenv(load_dotenv())
+load_dotenv(find_dotenv())
 
 class Setup:
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://suser:suser@localhost:5432/sketch'
@@ -36,3 +37,4 @@ class Setup:
     SECRET_KEY= secrets.token_hex(32)
     UPLOAD_FOLDER = r'/media/'
     ALLOWED_EXTENSIONS= {'jpg'}
+    DEBUG= literal_eval(os.getenv('DEBUG'))

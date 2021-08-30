@@ -14,7 +14,7 @@ from .. import db as maindb
 from ..oauth import OAuthSignIn
 from ..database import Database
 from .form import LoginForm,RegisterForm,ChangePassword
-from main.models import User,Post,Notification,follow,Role
+from main.models import User,Post,Notification,follow
 
 
 providers = ['twitter','google','facebook']

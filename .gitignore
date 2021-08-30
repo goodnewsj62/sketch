@@ -1,12 +1,15 @@
+#virtual enviroment
 venv/*
 venv
 
+#vscode added
 __pycache__/*
 __pycache__
+.vscode
 
+#custom added files
+todo.txt
 migrations
 migrations/*
-
-
-.vscode
-todo.txt
+localrun.py
+.env

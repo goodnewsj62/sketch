@@ -5,7 +5,7 @@ from flask_wtf.file import FileRequired,FileAllowed,FileField
 
 
 from ..database import Database
-from ..models import User,Role,Post,Notification,follow
+from ..models import User,Post,Notification,follow
 
 db = Database(User,Post,Notification,follow)
 

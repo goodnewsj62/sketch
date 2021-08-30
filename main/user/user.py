@@ -9,7 +9,7 @@ from flask_login import login_required,current_user
 from .. import db as maindb
 from .form import UpdateProfile,AvatarForm
 from ..database import Database
-from ..models import User,Role,Post,Notification,follow
+from ..models import User,Post,Notification,follow
 
 user = Blueprint("user", __name__)
 
