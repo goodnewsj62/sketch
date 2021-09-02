@@ -1,0 +1,100 @@
+/* landing */
+.landing{
+    width: 100%;
+    display: flex;
+}
+
+.brand,.bg{
+    width: 50%;
+}
+
+.bg{
+    position: relative;
+    display: flex;
+}
+.bg img{
+    width: 100%;
+    object-fit: contain;
+}
+.bg img:first-child{
+    position: absolute;
+    left: 10%;
+    filter: drop-shadow(2px 6px 1px rgba(0,0,0,0.5));
+}
+
+.brand{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin: 0 4rem;
+    padding: 15% 0;
+}
+.brand *{
+    margin: 0.4rem 0;
+}
+.brand h1{
+    font-size: 4rem;
+}
+.brand a{
+    width: max(25%,30%);
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+    padding: 0.7rem 1rem;
+    color: #fff;
+    background: linear-gradient(45deg, #ff4800ff, #ff7900ff, #ffaa00ff);
+}
+
+.brand a:hover ,.brand a:active{
+    animation: colortravel 3s ease 0s infinite;
+}
+@keyframes colortravel {
+    0%{ background: linear-gradient(45deg, #ff4800ff 15%, #ff7900ff 70%, #ffaa00ff 100%);}
+    50%{ background: linear-gradient(45deg, #ff4800ff 30%, #ff7900ff 80%, #ffaa00ff 100%);}
+    80%{ background: linear-gradient(125deg, #ff4800ff 30%, #ff7900ff 80%, #ffaa00ff 100%);}
+    100%{    background: linear-gradient(45deg, #ffaa00ff 0%,#ff7900ff 80%, #ff4800ff 100%);    }
+
+}
+
+@media screen and (max-width:1100px) {
+    .brand h1{
+        font-size: 3rem;
+    }
+}
+
+@media screen and (max-width:900px) {
+    .brand h1{
+        font-size: 2.5rem;
+    }
+    .brand a{
+        width: 40%;
+    }
+}
+
+@media screen and (max-width:600px) {
+    .landing{
+        background: linear-gradient(rgba(255,255,255,0.3),rgba(255,255,255,0.2), rgba(0,0,0,0.5)), url('../images/smokes1.png');
+        background-repeat: no-repeat;
+        background-position:center;
+    }
+    .bg{
+        display: none;
+    }
+    .brand{
+        width: 100%;
+        padding:4rem 1rem;
+        margin: 0;
+        align-items: center;
+    }
+    .brand h1{
+        text-align: center;
+        font-size: 2.3em;
+    }
+    .brand p{
+        text-align: center;
+    }
+    .brand a{
+        width: 70%;
+        margin: 1.2rem 0;
+    }
+}

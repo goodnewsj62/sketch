@@ -4,24 +4,79 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{url_for('static', filename='static/index.css')}}">
-    <script src="" defer></script>
+    <meta name="description" content="">
     {% block title%}
         <title>sketch</title>
     {% endblock %}
-    {% block style%}
-    {% endblock %}
-    {% block script%}
-    {% endblock %}
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+    {% block head %}{% endblock head %}
 </head>
 <body>
     <div class="container">
         <header>
-        </header>
-        <main>
-        </main>
-        <footer>
-        </footer>
+        <div class="logo">
+            {% block logo %}
+                <img src="{{url_for('static', filename='images/logos/logo-fff-landing.png')}}" alt="logo">
+            {% endblock logo %}
+        </div>
+        <div class="navbar">
+            {% block nav %}
+                <nav>
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact</a></li>
+                </nav>
+                <div class="auth">
+                    {% if current_user.is_authenticated %}
+                        <li><a href="#">Sign Out</a></li>
+                    {% else %}
+                        <li><a href="#">Sign Up</a></li>
+                        <li><a href="#">Log In</a></li>
+                    {% endif %}
+                </div>
+            {% endblock nav %}
+        </div>
+
+        <div class="mobile-toggle">
+            <ion-icon class="ion-icon" id="bars" name="reorder-two-outline"></ion-icon>
+            <ion-icon class="ion-icon" id="close" name="close-outline"></ion-icon>
+        </div>
+    </header>
+    
+    <div class="sidebar">
+        {% block sidebar %}
+            <li><a href="#"><ion-icon name="images-outline"></ion-icon> Gallery</a></li>
+            <li><a href="#"> <ion-icon name="help-circle-outline"></ion-icon> About Us</a></li>
+            <li><a href="#"><ion-icon name="mail-unread-outline"></ion-icon> Contact</a></li>
+            {% if current_user.is_authenticated %}
+                <li><a href="#"><ion-icon name="log-out-outline"></ion-icon> Sign Out</a></li>
+            {% else %}
+                <li><a href="#"><ion-icon name="add-circle-outline"></ion-icon> Sign Up</a></li>
+                <li><a href="#"> <ion-icon name="log-out-outline"></ion-icon> Log In</a></li>
+            {% endif %}
+        {% endblock sidebar %}
     </div>
+    
+    <div class="shadow"></div>
+    
+    {% block content %} {% endblock content %}
+    
+    <footer>
+        <div class="socials">
+            <a href="#"><img src="{{url_for('static',filename='images/image-icons/Facebook-Icon.png')}}" alt="social-icon"></a>
+            <a href="#"><img src="{{url_for('static',filename='images/image-icons/Twitter-Icon.png')}}" alt="social-icon"></a>
+            <a href="#"><img src="{{url_for('static',filename='images/image-icons/Instagram-Icon.png')}}" alt="social-icon"></a>
+            <a href="#"><img src="{{url_for('static',filename='images/image-icons/Linkedin-Icon.png')}}" alt="social-icon"></a>
+            <a href="#"><img src="{{url_for('static',filename='images/image-icons/Pinterest-Icon.png')}}" alt="social-icon"></a>
+        </div>
+        <div class="powered">&copy; 2021 Routesbirds</div>
+    </footer>
+    </div>
+    <script src="{{url_for('static',filename='js/jquery-3.6.0.min.js')}}"></script>
+    <script src="{{url_for('static',filename='js/sidebar-toggle.js')}}"></script>
+    <script src="{{url_for('static',filename='js/glass-header.js')}}"></script>
+    {% block script %} {% endblock script %}
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 </html>

@@ -1,0 +1,42 @@
+:root{
+    --base-color: #ff4800ff;
+    --pallet-one: #ff5400ff;
+    --blaze-orange: #ff6000ff;
+    --pumpkin: #ff6d00ff;
+    --heat-wave: #ff7900ff;
+    --dark-orange: #ff8500ff;
+    --yellow-orange: #ff9100ff;
+    --orange-peel: #ff9e00ff;
+    --chrome-yellow: #ffaa00ff;
+    --selective-yellow: #ffb600ff;
+    --light-coral:#FF6E6E;
+    --salmon:#FF8266;
+    --rajah:#FFB069;
+}
+
+@font-face {
+    font-family: Inter;
+    src: url('../fonts/Inter-VariableFont_slntwght.ttf');
+}
+
+@font-face {
+    font-family: Poppins;
+    src: url('../fonts/Poppins-Bold.ttf');
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: Poppins;
+    src: url('../fonts/Poppins-Medium.ttf');
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: Poppins;
+    src: url('../fonts/Poppins-Regular.ttf');
+    font-weight: 400;
+}
+
+html{
+    font-family: Poppins;
+}

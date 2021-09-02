@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <title>Sketched Home</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/home.css')}}">
+{% endblock head %}
+
+
+{% block content %}
+<main>
+    <section class="landing">
+        <div class="brand">
+            <h1>Express Art And Creativity</h1>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus debitis porro tempore reprehenderit nisi illum iste quae modi aut? Quia.
+            </p>
+            <a href="#" role="button">Get Started</a>
+        </div>
+        <div class="bg">
+            <img src="{{url_for('static', filename='images/Parrot_PNG_Transparent_Clip_Art_Image.png')}}" alt="">
+            <img src="{{url_for('static', filename='images/smokes.png')}}" alt="">
+        </div>
+    </section>
+    <section class="descriptions">
+    
+    </section>
+</main>
+{% endblock content %}

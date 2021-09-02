@@ -28,7 +28,7 @@ def create_app():
 
     with app.app_context():
 
-        from .gallery.gallery import gallery
+        from .gallery.views import gallery
         from .auth.auth import auth
         from .user.user import user
         # from .errors.errors import

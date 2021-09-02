@@ -1,0 +1,213 @@
+@import 'base.css';
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    width: 100vw;
+    overflow-x: hidden;
+    position: relative;
+    padding-top: 72px;
+}
+
+header{
+    width: 100%;
+    display: flex;
+    height: 72px;
+    top: 0;
+    position: fixed;
+    align-items: center;
+    padding: 1rem 4rem;
+    overflow: hidden;
+    z-index: 100;
+}
+
+header .logo{
+    width: 200px;
+}
+.logo img{
+    width: 100%;
+}
+
+.mobile-toggle, .sidebar{
+    display: none;
+}
+
+header a{
+    text-decoration: none;
+    color: inherit;
+    font-weight:  bold;
+}
+
+header .navbar{
+    width: calc(100vw - 264px);
+    display: flex;
+    align-items: center;
+}
+
+.navbar li{
+    list-style: none;
+}
+.navbar nav{
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 3rem;
+}
+
+.navbar nav li{
+    margin: 0 2.5rem;
+}
+
+.navbar .auth {
+    width: 30%;
+    display: flex;
+    justify-content: flex-end;
+}
+.auth li  {
+    margin: 0 0.5rem;
+}
+
+.auth a{
+    padding:10px 32px;
+}
+
+.auth li:last-child a{
+    background: var(--base-color);
+    color: #fff;
+    transition: all 0.5s;
+}
+
+.auth li:last-child a:hover, .auth li:last-child a:active{
+    background: linear-gradient(45deg, #ff4800ff 0%,#ff9e00ff 50%, #ffb600ff 100%);
+}
+
+@media screen and (max-width:1211px) {
+    .auth a{
+        padding: 8px 15px;
+    }
+    header{
+        padding: 1rem 4rem;
+    }
+    
+    .navbar nav li{
+        margin: 0 1.5rem;
+    }
+}
+
+
+@media  screen and (max-width:993px) {
+    .container{
+        padding-top: 85px;
+    }
+    header{
+        height: 85px;
+        padding: 2rem;
+    }
+
+    header .logo {
+        width: 150px;
+    }
+
+    header .navbar{
+        display: none;
+    }
+    .mobile-toggle,.sidebar{
+        display: initial;
+    }
+    .mobile-toggle{
+        margin-left: auto;
+        position: relative;
+    }
+    .mobile-toggle .ion-icon{
+        font-size: 3rem;
+        transition: all 0.5s;
+    }
+    .mobile-toggle .ion-icon:last-child{
+        position: absolute;
+        inset: 0;
+        margin: auto;
+        opacity: 0;
+        padding-bottom: 10px;
+    }
+
+    .bar-toggle{
+        opacity: 0;
+    }
+    .close-toggle{
+        opacity: 1 !important;
+    }
+}
+
+@media screen and (max-width:600px) {
+    header{
+        padding: 1rem;
+    }
+}
+
+/* side bar */
+
+@media screen and (max-width:993px) {
+    .sidebar{
+        width: 30%;
+        top: 85px;
+        right: -300px;
+        height: calc(100vh - 85px);
+        display: block;
+        position: fixed;
+        overflow-y:auto;
+        background-color: #fff;
+        transition: all 0.5s;
+        z-index: 10;
+    }
+
+    .sidebar-toggle{
+        right: 0;
+    }
+
+    .sidebar li{
+        list-style: none;
+        margin: 2rem;
+    }
+
+    .sidebar a{
+        text-decoration: none;
+        color: inherit;
+        display: flex;
+        align-items: center;
+    }
+    .sidebar ion-icon{
+        font-size: 2rem;
+        margin-right: 1.5rem;
+    }
+}
+
+@media screen and (max-width:600px) {
+    .sidebar{
+        width: 70%;
+    }
+}
+
+/* shadow */
+.shadow{
+    display: none;
+    width: 100%;
+    position: absolute;
+    top: 85px;
+    background-color: rgba(0,0,0,0.3);
+}
+
+/* custom */
+.text-muted{
+    color: #6c757d;
+}
+
+/* glass header */
+.glass-effect{
+    background-color: rgba(255,255,255,0.5);
+    backdrop-filter: blur(20px);
+}
