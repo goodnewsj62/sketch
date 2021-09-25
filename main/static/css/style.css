@@ -150,12 +150,11 @@ header .navbar{
 }
 
 /* side bar */
-
 @media screen and (max-width:993px) {
     .sidebar{
         width: 30%;
         top: 85px;
-        right: -300px;
+        right: -400px;
         height: calc(100vh - 85px);
         display: block;
         position: fixed;
@@ -190,6 +189,16 @@ header .navbar{
     .sidebar{
         width: 70%;
     }
+}
+
+@media screen and (max-width:400px) {
+    .sidebar{
+        right: -300px;
+    }
+    .sidebar-toggle{
+        right: 0;
+    }
+
 }
 
 /* shadow */

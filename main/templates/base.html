@@ -8,6 +8,7 @@
     {% block title%}
         <title>sketch</title>
     {% endblock %}
+    <link rel="icon" type="image/png" href="{{url_for('static', filename='images/logos/icon.png')}}">
     <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
     {% block head %}{% endblock head %}
 </head>
@@ -69,7 +70,13 @@
             <a href="#"><img src="{{url_for('static',filename='images/image-icons/Linkedin-Icon.png')}}" alt="social-icon"></a>
             <a href="#"><img src="{{url_for('static',filename='images/image-icons/Pinterest-Icon.png')}}" alt="social-icon"></a>
         </div>
-        <div class="powered">&copy; 2021 Routesbirds</div>
+        <div class="powered">
+            <img width="30" class="flogo" src="{{url_for('static', filename='images/logos/icon.png')}}" alt="logo">
+            <div class="brand-copyrt">
+                <h3>Sketched</h3>
+                <p>&copy; 2021 Routesbirds all rights reserved</p>
+            </div>
+        </div>
     </footer>
     </div>
     <script src="{{url_for('static',filename='js/jquery-3.6.0.min.js')}}"></script>
