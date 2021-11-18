@@ -8,8 +8,8 @@ from . import db
 
 #the follower are the ones following thoes on the right hand side of the table (followed)
 follow = db.Table('follow',
-                        db.Column('follower_id',db.Integer,db.ForeignKey('user.id')),
-                        db.Column('followed_id',db.Integer, db.ForeignKey('user.id'))
+                        db.Column('follower_id',db.Integer,db.ForeignKey('users.id')),
+                        db.Column('followed_id',db.Integer, db.ForeignKey('users.id'))
                         )
 
 
@@ -68,7 +68,7 @@ class Post(db.Model):
     date_posted = db.Column(db.DateTime,nullable=False, default=datetime.utcnow)
     love = db.Column(db.Integer, nullable=False, default=0)
     private = db.Column(db.Boolean, nullable=False,default=False)
-    uploader = db.Column(db.Integer,db.ForeignKey('user.id', ondelete='CASCADE'),nullable=False)
+    uploader = db.Column(db.Integer,db.ForeignKey('users.id', ondelete='CASCADE'),nullable=False)
     category = db.Column(db.String(100), db.ForeignKey('category.name', ondelete='CASCADE'),nullable=False)
 
     def __repr__(self):
@@ -79,7 +79,7 @@ class Notification(db.Model):
     id = db.Column(db.Integer,primary_key=True)
     title = db.Column(db.String(200), nullable= False)
     time_stamp = db.Column(db.DateTime,nullable=False,default=datetime.utcnow)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     payload = db.Column(db.Text)
 
     def __repr__(self):

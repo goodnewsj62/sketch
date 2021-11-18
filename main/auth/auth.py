@@ -41,12 +41,15 @@ def only_annonymous(view):
 def login():
     form = LoginForm()
     if form.validate_on_submit():
-        user = User.query.filter_by(username=form.username.data)
+        user =  User.query.filter_by(username=form.username.data).first()
+        user = User.query.filter_by(email = form.username.data).first() if user == None else user #if user is none query by email else just assign user to user
         if user != None:
             if bcrypt_.check_password_hash(user.password,form.password.data):
                 login_user(user,form.remember.data)
+                next= request.values.get("next")
                 flash('sign in successful', 'success')
-                next=None
+                if next:
+                    return redirect(next)
                 return redirect(url_for('gallery.home'))
             else:
                 flash('invalid Password')
@@ -64,10 +67,14 @@ def register():
     form = RegisterForm()
     if form.validate_on_submit():
         password = bcrypt_.generate_password_hash(form.password.data).decode('utf-8')
-        user = User(name= form.name.data, username=form.username.data, email=form.email.data,contact = form.phone_no.data,password=password)
+        user = User(name= form.name.data, username=form.username.data, email=form.email.data,password=password)
         db.session.add(user)
         db.session.commit()
+        login_user(user)
+        next= request.values.get("next")
         flash('Account created successfully', 'success')
+        if next:
+            return redirect(next)
         return redirect(url_for('gallery.home'))    
 
     return render_template('auth/signup.html', form= form)

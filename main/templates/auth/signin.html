@@ -1,7 +1,10 @@
 {% extends "base.html" %}
 
+{% block title %}
+    <title>Babylon Sign up </title>
+{% endblock title %}
+
 {%block head%}
-    <title>Babylon login</title>
     <link rel="stylesheet" href="{{url_for('static', filename='css/auth.css')}}">
 {%endblock head%}
 
@@ -23,43 +26,45 @@
             <h1>Sign in</h1>
             <div class="auth-div">
                 <div class="form-div">
-                    <form action="" method="POST">
-                        {{form.hidden_tag()}}
-                        <div class="form-field">
-                            {{form.username.label(class="label")}}
-                            {% if form.username.errors %}
-                                {{form.username(class="form-design form-error", placeholder="Username or Email")}}
-                                <ul class="error-list">
-                                    {% for error in form.username.errors %}
-                                        <li>{{error}}</li>
-                                    {% endfor %}
-                                </ul>
-                            {% else %}
-                                {{form.username(class="form-design", placeholder="Username or Email")}}
-                            {% endif %}
-                        </div>
-                        <div class="form-field">
-                            {{form.password.label(class="label")}}
-                            {% if form.password.errors %}
-                                {{form.password(class="form-design form-error", placeholder="Password")}}
-                                <ul class="error-list">
-                                    {% for error in form.password.errors %}
-                                        <li>{{error}}</li>
-                                    {% endfor %}
-                                </ul>
-                            {% else %}
-                                {{form.password(class="form-design",placeholder="Password")}}
-                            {% endif %}
-                        </div>
-                        <div class="check">
-                            {{form.remember(class="")}} remember me
-                        </div>
-                        
-                        <button type="submit">
-                            Sign in <ion-icon name="arrow-forward-outline"></ion-icon>
-                        </button>
-                    </form>
-                    <p>Dont have an account? <a href="#">Sign up</a></p>
+                    {% block form %}
+                        <form action="" method="POST">
+                            {{form.hidden_tag()}}
+                            <div class="form-field">
+                                {{form.username.label(class="label")}}
+                                {% if form.username.errors %}
+                                    {{form.username(class="form-design form-error", placeholder="Username or Email")}}
+                                    <ul class="error-list">
+                                        {% for error in form.username.errors %}
+                                            <li>{{error}}</li>
+                                        {% endfor %}
+                                    </ul>
+                                {% else %}
+                                    {{form.username(class="form-design", placeholder="Username or Email")}}
+                                {% endif %}
+                            </div>
+                            <div class="form-field">
+                                {{form.password.label(class="label")}}
+                                {% if form.password.errors %}
+                                    {{form.password(class="form-design form-error", placeholder="Password")}}
+                                    <ul class="error-list">
+                                        {% for error in form.password.errors %}
+                                            <li>{{error}}</li>
+                                        {% endfor %}
+                                    </ul>
+                                {% else %}
+                                    {{form.password(class="form-design",placeholder="Password")}}
+                                {% endif %}
+                            </div>
+                            <div class="check">
+                                {{form.remember(class="")}} remember me
+                            </div>
+                            
+                            <button type="submit">
+                                Sign in <ion-icon name="arrow-forward-outline"></ion-icon>
+                            </button>
+                        </form>
+                        <p>Dont have an account? <a href="#">Sign up</a></p>
+                    {% endblock form %}
                 </div>
                 <div class="or">
                     <span></span>or<span></span>

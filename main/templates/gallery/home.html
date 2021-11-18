@@ -1,10 +1,12 @@
 {% extends "base.html" %}
 
 {% block head %}
-    <title>Sketched Home</title>
     <link rel="stylesheet" href="{{url_for('static', filename='css/home.css')}}">
 {% endblock head %}
 
+{% block title %}
+    <title>Sketched Home</title>
+{% endblock title %}
 
 {% block content %}
 <main>
