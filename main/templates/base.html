@@ -14,36 +14,38 @@
 </head>
 <body>
     <div class="container">
-        <header>
-        <div class="logo">
-            {% block logo %}
-                <img src="{{url_for('static', filename='images/logos/logo-fff-landing.png')}}" alt="logo">
-            {% endblock logo %}
-        </div>
-        <div class="navbar">
-            {% block nav %}
-                <nav>
-                    <li><a href="#">Gallery</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Contact</a></li>
-                </nav>
-                <div class="auth">
-                    {% if current_user.is_authenticated %}
-                        <li><a href="#">Sign Out</a></li>
-                    {% else %}
-                        <li><a href="#">Sign Up</a></li>
-                        <li><a href="#">Log In</a></li>
-                    {% endif %}
-                </div>
-            {% endblock nav %}
-        </div>
+        {% block header %}
+            <header>
+            <div class="logo">
+                {% block logo %}
+                    <img src="{{url_for('static', filename='images/logos/logo-fff-landing.png')}}" alt="logo">
+                {% endblock logo %}
+            </div>
+            <div class="navbar">
+                {% block nav %}
+                    <nav>
+                        <li><a href="#">Gallery</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </nav>
+                    <div class="auth">
+                        {% if current_user.is_authenticated %}
+                            <li><a href="#">Sign Out</a></li>
+                        {% else %}
+                            <li><a href="#">Sign Up</a></li>
+                            <li><a href="#">Log In</a></li>
+                        {% endif %}
+                    </div>
+                {% endblock nav %}
+            </div>
 
-        <div class="mobile-toggle">
-            <ion-icon class="ion-icon" id="bars" name="reorder-two-outline"></ion-icon>
-            <ion-icon class="ion-icon" id="close" name="close-outline"></ion-icon>
-        </div>
-    </header>
-    
+            <div class="mobile-toggle">
+                <ion-icon class="ion-icon" id="bars" name="reorder-two-outline"></ion-icon>
+                <ion-icon class="ion-icon" id="close" name="close-outline"></ion-icon>
+            </div>
+        </header>
+    {% endblock header %}
+
     <div class="sidebar">
         {% block sidebar %}
             <li><a href="#"><ion-icon name="images-outline"></ion-icon> Gallery</a></li>
@@ -63,18 +65,22 @@
     {% block content %} {% endblock content %}
     
     <footer>
-        <div class="socials">
-            <a href="#"><img src="{{url_for('static',filename='images/image-icons/Facebook-Icon.png')}}" alt="social-icon"></a>
-            <a href="#"><img src="{{url_for('static',filename='images/image-icons/Twitter-Icon.png')}}" alt="social-icon"></a>
-            <a href="#"><img src="{{url_for('static',filename='images/image-icons/Instagram-Icon.png')}}" alt="social-icon"></a>
-            <a href="#"><img src="{{url_for('static',filename='images/image-icons/Linkedin-Icon.png')}}" alt="social-icon"></a>
-            <a href="#"><img src="{{url_for('static',filename='images/image-icons/Pinterest-Icon.png')}}" alt="social-icon"></a>
-        </div>
+        <nav class="foot-nav">
+            <li><a href="#">privacy & policy</a></li>
+            <li><a href="#">Terms and conditions</a></li>
+            <li><a href="#">contact us</a></li>
+            <li><a href="#">about us</a></li>
+        </nav>
         <div class="powered">
-            <img width="30" class="flogo" src="{{url_for('static', filename='images/logos/icon.png')}}" alt="logo">
             <div class="brand-copyrt">
-                <h3>Sketched</h3>
                 <p>&copy; 2021 Routesbirds all rights reserved</p>
+            </div>
+            <div class="socials">
+                <a href="#"><img src="{{url_for('static',filename='images/image-icons/Facebook-Icon.png')}}" alt="social-icon"></a>
+                <a href="#"><img src="{{url_for('static',filename='images/image-icons/Twitter-Icon.png')}}" alt="social-icon"></a>
+                <a href="#"><img src="{{url_for('static',filename='images/image-icons/Instagram-Icon.png')}}" alt="social-icon"></a>
+                <a href="#"><img src="{{url_for('static',filename='images/image-icons/Linkedin-Icon.png')}}" alt="social-icon"></a>
+                <a href="#"><img src="{{url_for('static',filename='images/image-icons/Pinterest-Icon.png')}}" alt="social-icon"></a>
             </div>
         </div>
     </footer>

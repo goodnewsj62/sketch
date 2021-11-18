@@ -27,7 +27,7 @@ def load_user(user_id):
 #function blocks user logged in from accessing
 #the login page again
 
-def annonymous(view):
+def only_annonymous(view):
     @wraps(view)
     def wrapper(*arg,**kwargs):
         if current_user.is_authenticated:
@@ -37,7 +37,7 @@ def annonymous(view):
 
 
 @auth.route('/login', methods=['GET','POST'])
-@annonymous
+@only_annonymous
 def login():
     form = LoginForm()
     if form.validate_on_submit():
@@ -59,7 +59,7 @@ def login():
 
 
 @auth.route('/register', methods=['GET','POST'])
-@annonymous
+@only_annonymous
 def register():
     form = RegisterForm()
     if form.validate_on_submit():
@@ -195,7 +195,7 @@ def valid_username(username):
 
 
 @auth.route('/authorize/<provider>')
-@annonymous
+@only_annonymous
 def oauth_authorize(provider):
     """
         - if user is authenticated refer back to home
@@ -209,7 +209,7 @@ def oauth_authorize(provider):
 
 
 @auth.route('/callback/<provider>')
-@annonymous
+@only_annonymous
 def oauth_callback(provider):
     """
         - if user is authenticated refer back to home
